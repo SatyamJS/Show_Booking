@@ -82,6 +82,7 @@ input[type="search"]{
 .content{
   display: flex;
   width:90vw;
+  min-height: 1200px;
   margin:20px auto;
   /* border:1px solid red; */
   justify-content: center;
@@ -191,7 +192,6 @@ input[type="search"]{
   padding: 20px;
   position: relative;
   bottom: 0px;
-  width:100vw;
 }
 .footer:hover{
   color:red;
