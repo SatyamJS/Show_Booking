@@ -10,7 +10,7 @@ function DetailPage(props) {
     const [input, setInput] = useState({})
     const handleClick = () => {
         setFormViewer(true)
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
     }
     const handleChange = (event) => {
         setInput(prev => {
@@ -23,17 +23,17 @@ function DetailPage(props) {
         localStorage.setItem("data", JSON.stringify(input))
         alert(JSON.stringify(input))
     }
-    try{
-        var image=state.data.image.medium
-    }catch{
-        var image=""
+    try {
+        var image = state.data.image.medium
+    } catch {
+        var image = ""
     }
     return (
         <>...
             {formViewer ?
                 <>
                     <div className="form">
-                        <span><strong style={{color:"red"}}>  Movie Name</strong>: {state.data.name}</span> <span ><strong style={{color:"red"}}>Runtime </strong>: {state.data.runtime + "min"}</span>
+                        <span><strong style={{ color: "red" }}>  Movie Name</strong>: {state.data.name}</span> <span ><strong style={{ color: "red" }}>Runtime </strong>: {state.data.runtime + "min"}</span>
                         <form onSubmit={handleSubmit} >
                             <input type="text" placeholder="Enter Name" name="name" onChange={handleChange} value={input.name || ""} />
                             <input type="email" name="email" placeholder="Email" onChange={handleChange} value={input.email || ""} />
@@ -61,10 +61,10 @@ function DetailPage(props) {
                         <span><strong>Ratings:</strong>{state.data.rating.average}</span>
                         <span><strong>First Premiered:</strong>{state.data.premiered}</span>
                     </div>
-                    <div className="summary"><strong>Summary: </strong> {state.data.summary}
+                    <div className="summary" dangerouslySetInnerHTML={{__html:state.data.summary}}>
+                    </div>
                 </div>
-                </div>
-                
+
                 <div className="ticketBookBtn">
                     <button className="btn" onClick={handleClick}>Book Ticket</button>
                 </div>
